@@ -1,0 +1,42 @@
+#include <iostream>
+
+int numEnd = 0;
+int range = 0;
+int total = 1;
+float mod = 0;
+int lastChecked = 2;
+
+int main()
+{
+    std::cout << "Hello, please enter the number which you want us to search for primes until: " << std::endl;
+    std::cin >> numEnd;
+    std::cout << "2 is a prime number" << std::endl;
+    range = numEnd;
+    int primes [range];
+    primes [1] = 2;
+    for (int j = 3; j <= numEnd; j++)
+    {
+        int prime = 1;
+        for (int i = 1; i <= total && prime != 0; i++)
+        {
+            if (primes [i] <= (j/lastChecked) + 1)
+            {
+                mod = j % primes[i];
+            }
+            if (mod == 0)
+            {
+                prime = 0;
+            }
+            lastChecked = primes [i];
+        }
+        if (prime == 1)
+        {
+            std::cout << j << " is a prime number" << std::endl;
+            primes [total+1] = j;
+            total++;
+        }
+    }
+    std::cout << "There are " << total << " primes up to " << numEnd << std::endl;
+
+    return 0;
+}
