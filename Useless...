@@ -1,0 +1,34 @@
+#include <iostream>
+
+int numEnd = 0;
+int numStart = 0;
+int total = 0;
+int equality = 0;
+int prime = 0;
+int main()
+{
+    std::cout << "Hello, please enter the first number of the range of numbers you want me to search for primes in: " << std::endl;
+    std::cin >> numStart;
+    if (numStart == 1)
+    {
+        numStart = 2;
+    }
+    std::cout << "Now enter the final number in the range you want me to consider: "<< std::endl;
+    std::cin >> numEnd;
+    for (int j = numStart; j <= numEnd; j++)
+    {
+        equality =1;
+        for (int i =2; i < j; i++)
+        {
+            equality = equality * i;
+        }
+        if ((equality + 1) % j == 0)
+        {
+            std::cout << j << " is a prime number" << std::endl;
+            total++;
+        }
+    }
+    std::cout << "There are " << total << " prime numbers in that range" << std::endl;
+
+    return 0;
+}
