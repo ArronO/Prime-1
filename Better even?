@@ -34,7 +34,10 @@ int main()
         }
     }
     std::cout << "There are " << total << " primes up to " << numEnd << std::endl;
+    std::cout << 100 * total/(numEnd * 1.0) << "% of numbers in this range are prime" << std::endl;
 
     return 0;
 }
+
+// 1000000000 --> 50847534
 // 2000000 = 0:01
